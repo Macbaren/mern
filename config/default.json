@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "macbaren mern",
+  "mongoUri": "mongodb+srv://macbaren:2000@cluster0-zgzzs.azure.mongodb.net/app?retryWrites=true&w=majority"
+}
