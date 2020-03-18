@@ -16,13 +16,12 @@ router.post(
   ],
   async (req, res) => {
   try {
-    console.log('Body', req.body)
     const errors = validationResult(req)
 
-    if (errors.isEmpty()) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
-        mesasge: 'Incorrect registration data'
+        message: 'Incorrect registration data'
       })
     }
 
@@ -31,7 +30,7 @@ router.post(
     const candidate = await User.findOne({ email })
 
     if(candidate) {
-      return res.status(400).json({ mesasge: 'User have exist' })
+      return res.status(400).json({ message: 'User have existed' })
     }
 
     const hashedPassword = await bcrypt.hash(password, 12)
@@ -39,10 +38,10 @@ router.post(
 
     await user.save()
 
-    res.status(201).json({ mesasge: 'User have created'})
+    res.status(201).json({ message: 'User created'})
   }
   catch (e) {
-    res.status(500).json({message: 'Something goes wrong. Try again'})
+    res.status(500).json({message: 'Login: Something goes wrong. Try again'})
   }
 })
 
@@ -57,10 +56,10 @@ router.post(
   try {
     const errors = validationResult(req)
 
-    if (errors.isEmpty()) {
+    if (!errors.isEmpty()) {
       return res.status(400).json({
         errors: errors.array(),
-        mesasge: 'Incorrect login data'
+        message: 'Incorrect login data'
       })
     }
 
@@ -69,7 +68,7 @@ router.post(
     const user = await User.findOne({ email })
 
     if(!user) {
-      return res.status(400).json({ mesasge: 'User have not found' })
+      return res.status(400).json({ message: 'User not found' })
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
@@ -87,7 +86,7 @@ router.post(
     res.json({ token, userId: user.id })
 
   } catch (e) {
-    res.status(500).json({message: 'Something goes wrong. Try again'})
+    res.status(500).json({message: 'Registration: Something goes wrong. Try again'})
   }
 })
 
