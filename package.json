@@ -14,7 +14,8 @@
     "mongoose": "^5.9.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "shortid": "^2.2.15"
   },
   "scripts": {
     "start": "node app.js",
