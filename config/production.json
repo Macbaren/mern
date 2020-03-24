@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "macbaren mern",
+  "mongoUri": "mongodb+srv://macbaren:2000@cluster0-9wgfe.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}
