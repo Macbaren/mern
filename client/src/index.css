@@ -30,3 +30,9 @@ input.yellow-input:focus {
 .row {
   padding-top: 2rem;
 }
+
+.preloader-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
